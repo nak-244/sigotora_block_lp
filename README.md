@@ -1,5 +1,13 @@
 # テーマカラー
 |header1|header2|header3|
 |:--|:--|:--|
-|align left|align left|align left|
-|a|b|c|
+|ブロック名|demoURL|テーマカラー|
+|北海道|b|c|
+|東北|b|c|
+|関東|b|c|
+|北陸／甲信越|b|c|
+|東海|b|c|
+|関西|b|c|
+|中国／四国|b|c|
+|九州|b|c|
+|沖縄|b|c|
