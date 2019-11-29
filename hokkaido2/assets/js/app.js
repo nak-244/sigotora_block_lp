@@ -22,8 +22,8 @@
   });
   // 地図タイルレイヤーをマップへ追加:
   layer.addTo(map);
-  // 皇居(北緯35.6825, 東経139.752778)を地図の中心に。ズームレベルは5。
-  map.setView([35.6825, 139.752778], 5);
+  // 北海道の中心(北緯43.31216722473616, 東経142.86726950000002)を地図の中心に。ズームレベルは9。
+  map.setView([43.31216722473616, 142.86726950000002], 9);
   // // 地図タイルレイヤーを削除したいときはこのようにします:
   // map.removeLayer(layer);
 
@@ -33,16 +33,49 @@
   // @see: https://leafletjs.com/reference-1.5.0.html#map-event
   //
 
-
   //
   // 特定地点にマーカーを置く
   //
 
-  // 皇居(北緯35.6825, 東経139.752778)にマーカー:
-  const mark = L.marker([35.6825, 139.752778]);
-  mark.addTo(map);
+  // CRM札幌・札幌・メディカル札幌
+  const crms = L.marker([43.06185899999999, 141.352265]);
+  crms.addTo(map);
   // マーカーに吹き出しを設定:
-  mark.bindPopup('<h2>皇居</h2>こちらが<a href="https://tools.wmflabs.org/geohack/geohack.php?language=ja&pagename=%E7%9A%87%E5%B1%85&params=35_40_57_N_139_45_10_E_type:landmark_region:JP" target="_blank">皇居</a>です。');
+  crms.bindPopup('<h4>札幌支店・CRM札幌支店・メディカル札幌支店</h4>北海道札幌市中央区北1条西3-2 井門札幌ビル 9F<br><br>【コールセンター・オフィス事務系】<br>CRM札幌支店<br>TEL : 011-219-7625<br><br>【販売・接客・軽作業・食品製造・配送等】<br>札幌支店<br>TEL : 011-210-1189<br><br>【医療・介護・調理師・保育士等】<br>メディカル札幌支店<br>TEL : 011-798-9531');
+
+  // カテプリお仕事窓口（新札幌支店）
+  const shins = L.marker([43.03793899999999, 141.47218899999996]);
+  shins.addTo(map);
+  // マーカーに吹き出しを設定:
+  shins.bindPopup('<h4>カテプリお仕事窓口（新札幌支店）</h4>北海道札幌市厚別区中央2条5-7 カテプリ 2F<br>TEL : 011-890-8633');
+
+  // 旭川支店
+  const asahi = L.marker([43.76403900000002, 142.36074099999996]);
+  asahi.addTo(map);
+  // マーカーに吹き出しを設定:
+  asahi.bindPopup('<h4>旭川支店</h4>北海道旭川市宮下通9-780-1 旭川駅前第一ビル 4F<br>TEL : 0166-26-7214');
+
+  // 千歳支店
+  const chitose = L.marker([42.82547799999999, 141.64725899999996]);
+  chitose.addTo(map);
+  // マーカーに吹き出しを設定:
+  chitose.bindPopup('<h4>千歳支店</h4>北海道千歳市千代田町4-14 千歳第一ビルディング 3F<br>TEL : 0123-23-6833');
+
+  // 北見支店
+  const kitami = L.marker([43.79499000000001, 143.88560099999995]);
+  kitami.addTo(map);
+  // マーカーに吹き出しを設定:
+  kitami.bindPopup('<h4>北見支店</h4>北海道北見市常盤町4-16-3 トキワビレッジ 2F<br>TEL : 0157-31-2403');
+
+  // 道東支店
+  const kushiro = L.marker([42.98772000000004, 144.38227400000005]);
+  kushiro.addTo(map);
+  // マーカーに吹き出しを設定:
+  kushiro.bindPopup('<h4>道東支店</h4>北海道釧路市黒金町11丁目2番1号 黒金町MFビル 4F<br>TEL : 0154-25-9263');
+
+  //
+  // 地図：マップをクリックした後にのみズーム
+  //
 
   map.scrollWheelZoom.disable();
   map.on('focus', () => { map.scrollWheelZoom.enable(); });
