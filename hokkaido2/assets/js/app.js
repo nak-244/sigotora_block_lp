@@ -33,14 +33,6 @@
   // @see: https://leafletjs.com/reference-1.5.0.html#map-event
   //
 
-  // 地図がクリックされたらクリック位置の座標アラートを出す:
-  map.on('click', function(e) {
-    //クリック位置経緯度取得
-    const lat = e.latlng.lat;
-    const lng = e.latlng.lng;
-    //経緯度表示
-    alert("クリックされた地点のlat,lng(緯度,経度)は、\n" + lat + ", " + lng);
-  });
 
   //
   // 特定地点にマーカーを置く
@@ -51,60 +43,7 @@
   mark.addTo(map);
   // マーカーに吹き出しを設定:
   mark.bindPopup('<h2>皇居</h2>こちらが<a href="https://tools.wmflabs.org/geohack/geohack.php?language=ja&pagename=%E7%9A%87%E5%B1%85&params=35_40_57_N_139_45_10_E_type:landmark_region:JP" target="_blank">皇居</a>です。');
-  // 吹き出しをポップアップ:
-  mark.openPopup();
 
-  // 札幌駅(北緯43.068611, 東経141.350778)にもマーカー:
-  const sapMark = L.marker([43.068611, 141.350778]);
-  sapMark.addTo(map);
-  // マーカーに吹き出しを設定:
-  sapMark.bindPopup('<h2>札幌駅</h2>こちらは<b>札幌駅</b>です。');
-  // // 札幌駅のマーカーを削除したいときはこのようにします:
-  // map.removeLayer(sappMark);
-
-  //
-  // 地図上に円を描く
-  //
-
-  // 札幌駅を中心に半径20,000メートルの赤っぽい円を描画:
-  const circle = L.circle([43.068611, 141.350778], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    radius: 20000, // 20Km
-  }).addTo(map);
-
-  //
-  // 地図上の地点を線で結ぶ
-  //
-
-  // 札幌駅, 皇居, 博多駅を緑色の線で結合:
-  const latlngs = [
-    [43.068611, 141.350778], // 札幌駅
-    [35.6825, 139.752778], // 皇居
-    [33.59, 130.420611], // 博多駅
-  ];
-  const polyline = L.polyline(latlngs, { color: 'green' }).addTo(map);
-
-  //
-  // 特定地点にマーカーを置く (GeoJSON版)
-  //
-
-  // 博多駅にマーカー:
-  const gjson = {
-    "type": "Feature",
-    "properties": {
-      "name": "博多駅",
-      "content": "こちらは<b>博多駅</b>です。(GeoJSONで作成)"
-    },
-    "geometry": {
-      "type": "Point",
-      // 博多駅(北緯33.59, 東経130.420611):
-      "coordinates": [130.420611, 33.59], // NOTE: [経度,緯度]の順なので注意！
-    }
-  };
-  const hktMark = L.geoJson(gjson).addTo(map);
-  hktMark.bindPopup(function(data) {
-    console.log(data.feature.properties.popupContent)
-    return '<h2>'+ data.feature.properties.name + '</h2>' + data.feature.properties.content;
-  });
+  map.scrollWheelZoom.disable();
+  map.on('focus', () => { map.scrollWheelZoom.enable(); });
+  map.on('blur', () => { map.scrollWheelZoom.disable(); });

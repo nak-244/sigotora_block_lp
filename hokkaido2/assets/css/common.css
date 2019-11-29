@@ -94,5 +94,6 @@
 }
 
 #map {
-  height: 50vh;
+  height: 600px;
+  z-index: 1;
 }
