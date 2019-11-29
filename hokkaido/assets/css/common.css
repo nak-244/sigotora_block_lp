@@ -87,4 +87,8 @@
 }
 
 
-/* Googleマイマップカスタマイズ */
+/* ガターの溝をなくす */
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
