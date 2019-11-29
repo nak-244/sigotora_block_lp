@@ -92,3 +92,7 @@
     padding-right:0;
     padding-left:0;
 }
+
+#map {
+  height: 50vh;
+}

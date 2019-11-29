@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <script src="assets/js/all.js"></script>
   <script src="assets/js/search.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="">
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
   <!-- //追加データ -->
 </head>
 
@@ -149,22 +151,52 @@
       </div>
     </div>
   </div>
-  <div class="py-5 bg-light">
+<!-- 地図 -->
+  <div class="py-5" style="">
     <div class="container">
-      <div class="row">
-        <div class="mx-auto col-md-12 px-4">
-          <h3>I am so happy, my dear friend</h3>
-          <p class="mb-4">So absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment.</p>
+      <div class="row py-3 mx-1">
+        <div class="col-md-12">
+          <!-- 地図格納要素 (ここに地図を描画) -->
+          <div id="map"></div>
+          <script src="assets/js/app.js"></script>
         </div>
       </div>
     </div>
-    <div class="container-fluid">
-      <div class="row no-gutter">
+  </div>
+<!-- //地図 -->
+  <div class="py-5" style="">
+    <div class="container">
+      <div class="row py-3 mx-1">
         <div class="col-md-12">
-          <div id="mapcontent">
-            <iframe src="https://www.google.com/maps/d/embed?mid=1hO8M1CYMEvvJRcKZakIHiewL_VtLhYf5" width="100%" height="480" frameborder="0"></iframe>
-          </div>
+          <h3 class="text-primary">北海道の転職・求人情報検索</h3>
         </div>
+        <div class="col-md-4 col-sm-12 my-3 px-3">
+          <p class="text-left">職種</p>
+          <select id="srh_jobtype_param" class="custom-select rounded-0">
+            <option value="">---</option>
+            <option value="1">オフィス事務</option>
+            <option value="2">営業</option>
+            <option value="3">IT・エンジニア</option>
+            <option value="4">WEB・クリエイター</option>
+            <option value="5">販売</option>
+            <option value="6">イベント</option>
+            <option value="7">接客・サービス</option>
+            <option value="8">飲食・フード</option>
+            <option value="9">軽作業</option>
+            <option value="10">製造</option>
+            <option value="11">配送・ドライバー</option>
+            <option value="12">医療・介護・福祉・保育・栄養士</option>
+            <option value="13">講師・インストラクター</option>
+            <option value="14">美容・ヘルスケア</option>
+            <option value="15">農業・酪農</option>
+            <option value="16">漁業・水産</option>
+          </select>
+        </div>
+        <div class="col-md-6 col-sm-12 my-3 px-3">
+          <p class="text-left">キーワード</p>
+          <input type="text" class="form-control rounded-0 w-100" id="sfw" placeholder="市区町村・資格など">
+        </div>
+        <div class="col-md-2 col-sm-12 my-3 d-flex flex-column-reverse px-3"><a class="btn btn-primary rounded-0" href="https://sigotora.jp/index.cfm?fuseaction=job.joblist&amp;srh_area_param=1" id="test">検索</a></div>
       </div>
     </div>
   </div>
