@@ -17,7 +17,7 @@
   //
   const dataId = "pale";
   // 地図タイルレイヤーを作成:
-  
+
   // これは国土地理院のちず
   // const layer = L.tileLayer(`https://cyberjapandata.gsi.go.jp/xyz/${dataId}/{z}/{x}/{y}.png`, {
   //   attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
@@ -25,7 +25,7 @@
 
   // これはOpenStreerMap
   const layer = L.tileLayer(`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`, {
-    attribution: "<a href='https://osm.org/copyright' target='_blank'>OpenStreetMap</a>"
+    attribution: "© <a href='https://osm.org/copyright' target='_blank'>OpenStreetMap</a> contributors"
   });
 
   // 地図タイルレイヤーをマップへ追加:
