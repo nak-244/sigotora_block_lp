@@ -17,9 +17,17 @@
   //
   const dataId = "pale";
   // 地図タイルレイヤーを作成:
-  const layer = L.tileLayer(`https://cyberjapandata.gsi.go.jp/xyz/${dataId}/{z}/{x}/{y}.png`, {
-    attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
+  
+  // これは国土地理院のちず
+  // const layer = L.tileLayer(`https://cyberjapandata.gsi.go.jp/xyz/${dataId}/{z}/{x}/{y}.png`, {
+  //   attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
+  // });
+
+  // これはOpenStreerMap
+  const layer = L.tileLayer(`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`, {
+    attribution: "<a href='https://osm.org/copyright' target='_blank'>OpenStreetMap</a>"
   });
+
   // 地図タイルレイヤーをマップへ追加:
   layer.addTo(map);
   // 北海道の中心(北緯43.31216722473616, 東経142.86726950000002)を地図の中心に。ズームレベルは8。
