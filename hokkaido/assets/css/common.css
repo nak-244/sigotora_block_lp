@@ -133,3 +133,11 @@
     border-top: none;
   }
 }
+
+
+/* 支店からのお知らせ　画像 */
+.img-fluid1 {
+    max-width: 100%;
+    height: 300px;
+    object-fit: contain;
+}
